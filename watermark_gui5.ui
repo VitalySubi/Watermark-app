@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>425</width>
+    <height>286</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Watermark</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>icon.png</normaloff>icon.png</iconset>
+  </property>
+  <widget class="QWidget" name="Centralwidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <widget class="QFrame" name="MainFrame">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>0</y>
+      <width>441</width>
+      <height>251</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
+    <widget class="QLabel" name="folderLabel">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>10</y>
+       <width>206</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Выбрать папку с файлами изображений:</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="folderButton">
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>10</y>
+       <width>121</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Выбрать</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="folderPath">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>40</y>
+       <width>401</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="watermarkLabel">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>70</y>
+       <width>171</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Выбрать файл с водяным знаком:</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="watermarkButton">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>300</x>
+       <y>70</y>
+       <width>121</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Выбрать</string>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="watermarkPath">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>100</y>
+       <width>401</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QLabel" name="watermarkPositionLabel">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>130</y>
+       <width>191</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Место установки водяного знака:</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="watermarkPosition">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>130</y>
+       <width>110</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="minimumContentsLength">
+      <number>0</number>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>16</width>
+       <height>16</height>
+      </size>
+     </property>
+     <item>
+      <property name="text">
+       <string>Выбрать</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Левый верхний</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Левый нижний</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Правый верхний</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Правый нижний</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="Line" name="horizontalLine">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>150</y>
+       <width>401</width>
+       <height>31</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QProgressBar" name="progressBar">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>180</y>
+       <width>401</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 0px;
+
+</string>
+     </property>
+     <property name="value">
+      <number>0</number>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="format">
+      <string>%v/%m</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="processingButton">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>210</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Выполнить</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="openOutputFolderButton">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>210</y>
+       <width>101</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Открыть папку</string>
+     </property>
+    </widget>
+    <zorder>horizontalLine</zorder>
+    <zorder>folderLabel</zorder>
+    <zorder>folderButton</zorder>
+    <zorder>folderPath</zorder>
+    <zorder>watermarkLabel</zorder>
+    <zorder>watermarkButton</zorder>
+    <zorder>watermarkPath</zorder>
+    <zorder>watermarkPositionLabel</zorder>
+    <zorder>watermarkPosition</zorder>
+    <zorder>progressBar</zorder>
+    <zorder>processingButton</zorder>
+    <zorder>openOutputFolderButton</zorder>
+   </widget>
+   <widget class="QFrame" name="InfoFrame">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>-1</y>
+      <width>441</width>
+      <height>251</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
+    <widget class="QLabel" name="infoImageLabel">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>20</y>
+       <width>101</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="wm_res.qrc">:/newIcon/icon_info.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="infoBackButton">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>210</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Назад</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="infoDescriptionLabel">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>10</y>
+       <width>281</width>
+       <height>231</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:6px; margin-bottom:6px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:12pt;&quot;&gt;Watermark app &lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:6px; margin-bottom:6px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Версия: v1.0 &lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;-qt-paragraph-type:empty; margin-top:6px; margin-bottom:6px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:400;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:6px; margin-bottom:6px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Программа предназначена для автоматизирован-&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:6px; margin-bottom:6px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;ного добавления водяных знаков на большое&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:6px; margin-bottom:6px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt; количество изображений.&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:6px; margin-bottom:6px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Авторы: &lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:6px; margin-bottom:6px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Александр Марков, Виталий Бордачёв&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot; margin-top:6px; margin-bottom:6px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:800;&quot;&gt;&lt;br /&gt;WeRproggers 2019&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="SettingsFrame">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>0</y>
+      <width>441</width>
+      <height>251</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>true</bool>
+    </property>
+    <widget class="QPushButton" name="settDefaultsButton">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>210</y>
+       <width>91</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>По умолчанию</string>
+     </property>
+    </widget>
+    <widget class="Line" name="settVerticalLine">
+     <property name="geometry">
+      <rect>
+       <x>210</x>
+       <y>10</y>
+       <width>20</width>
+       <height>181</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="settDimensionsCheck">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>20</y>
+       <width>191</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Подгонять размер изображений</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="settFormatCheck">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>20</y>
+       <width>161</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Выбрать выходной формат</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="settHeightRadio">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>50</y>
+       <width>151</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>подгонять по высоте</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="settWidthRadio">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>80</y>
+       <width>141</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>подгонять по ширине</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="settJPEGRadio">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>50</y>
+       <width>82</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>jpeg</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="settPNGRadio">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>80</y>
+       <width>82</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>png</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="settBMPRadio">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>110</y>
+       <width>82</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>bmp</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="settGIFRadio">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>260</x>
+       <y>140</y>
+       <width>82</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>gif</string>
+     </property>
+    </widget>
+    <widget class="Line" name="settHorizontalLine">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>190</y>
+       <width>381</width>
+       <height>16</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="settManualDimensionsCheck">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>110</y>
+       <width>171</width>
+       <height>17</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Указать желаемый размер</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="settHeightLabel">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>140</y>
+       <width>47</width>
+       <height>13</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>высота:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="settWidthLabel">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>170</y>
+       <width>47</width>
+       <height>13</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>ширина:</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="settManualHeightEdit">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>140</y>
+       <width>91</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="settManualWidthEdit">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>170</y>
+       <width>91</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="settHeightPixLabel">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>140</y>
+       <width>21</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>px</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="settWidthPixLabel">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>170</y>
+       <width>16</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>px</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="settOkButton">
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>210</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Ок</string>
+     </property>
+    </widget>
+    <zorder>settWidthRadio</zorder>
+    <zorder>settDefaultsButton</zorder>
+    <zorder>settVerticalLine</zorder>
+    <zorder>settDimensionsCheck</zorder>
+    <zorder>settFormatCheck</zorder>
+    <zorder>settHeightRadio</zorder>
+    <zorder>settJPEGRadio</zorder>
+    <zorder>settPNGRadio</zorder>
+    <zorder>settBMPRadio</zorder>
+    <zorder>settGIFRadio</zorder>
+    <zorder>settHorizontalLine</zorder>
+    <zorder>settManualDimensionsCheck</zorder>
+    <zorder>settHeightLabel</zorder>
+    <zorder>settWidthLabel</zorder>
+    <zorder>settManualHeightEdit</zorder>
+    <zorder>settManualWidthEdit</zorder>
+    <zorder>settHeightPixLabel</zorder>
+    <zorder>settWidthPixLabel</zorder>
+    <zorder>settOkButton</zorder>
+   </widget>
+   <zorder>MainFrame</zorder>
+   <zorder>SettingsFrame</zorder>
+   <zorder>InfoFrame</zorder>
+  </widget>
+  <widget class="QStatusBar" name="statusBar">
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(204, 204, 204);</string>
+   </property>
+   <property name="sizeGripEnabled">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>425</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="settings">
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="statusTip">
+     <string>Ожидание</string>
+    </property>
+    <property name="title">
+     <string>Настройки</string>
+    </property>
+    <addaction name="changeSettings"/>
+   </widget>
+   <widget class="QMenu" name="reference">
+    <property name="statusTip">
+     <string>Ожидание</string>
+    </property>
+    <property name="title">
+     <string>Справка</string>
+    </property>
+    <addaction name="about"/>
+   </widget>
+   <addaction name="settings"/>
+   <addaction name="reference"/>
+  </widget>
+  <action name="changeSettings">
+   <property name="text">
+    <string>Изменить настройки</string>
+   </property>
+  </action>
+  <action name="about">
+   <property name="text">
+    <string>О программе...</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="wm_res.qrc"/>
+ </resources>
+ <connections/>
+</ui>
